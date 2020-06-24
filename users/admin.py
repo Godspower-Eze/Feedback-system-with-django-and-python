@@ -2,11 +2,11 @@ from django.contrib import admin
 from .models import (User,
                      TeachersProfile,
                      StudentProfile,
-                     Classes,
+                     Class,
                      Subjects)
 
 admin.site.register(User)
 admin.site.register(TeachersProfile)
 admin.site.register(StudentProfile)
-admin.site.register(Classes)
+admin.site.register(Class)
 admin.site.register(Subjects)

@@ -42,7 +42,7 @@ class TeachersProfile(models.Model):
         return f"{self.teacher.first_name} {self.teacher.last_name} {self.qualification}"
 
 
-class Classes(models.Model):
+class Class(models.Model):
     class Meta:
         verbose_name_plural = 'Classes'
 
@@ -63,7 +63,7 @@ class StudentProfile(models.Model):
     student_image = models.ImageField(default='default.jpg', upload_to='student_images')
     guardians_name = models.CharField('Name Of Guardian', max_length=150, blank=True)
     teachers = models.ManyToManyField(TeachersProfile, blank=True)
-    my_class = models.ForeignKey(Classes, on_delete=models.CASCADE)
+    my_class = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.student.first_name} {self.student.last_name} {self.my_class.class_name}"
@@ -74,7 +74,7 @@ class Subjects(models.Model):
         verbose_name_plural = 'Subjects'
 
     subject_name = models.CharField(max_length=100)
-    classes = models.ForeignKey(Classes, on_delete=models.CASCADE)
+    classes = models.ForeignKey(Class, on_delete=models.CASCADE)
     teachers = models.ManyToManyField(TeachersProfile, blank=True)
     students = models.ManyToManyField(StudentProfile)
 
@@ -85,13 +85,13 @@ class Subjects(models.Model):
 @receiver(post_save, sender=StudentProfile)
 def student_created(sender, instance, created, **kwargs):
     if created:
-        user = Classes.objects.get(id=instance.my_class.id)
+        user = Class.objects.get(id=instance.my_class.id)
         user.num_of_students += 1
         user.save()
 
 
 @receiver(post_delete, sender=StudentProfile)
 def student_deleted(sender, instance, **kwargs):
-    user = Classes.objects.get(id=instance.my_class.id)
+    user = Class.objects.get(id=instance.my_class.id)
     user.num_of_students -= 1
     user.save()
