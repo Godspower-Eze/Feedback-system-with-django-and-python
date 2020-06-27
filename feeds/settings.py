@@ -27,19 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'surveysystem.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'surveysystem',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'survey',
     'widget_tweaks'
 ]
 
@@ -125,3 +124,4 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+LOGIN_URL = 'login'

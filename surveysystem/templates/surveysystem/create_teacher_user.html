@@ -1,0 +1,174 @@
+{% extends 'surveysystem/base.html'%}
+{% load widget_tweaks %}
+{% block content %}
+            <form class="container  p-5" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+                <legend>
+                            Teachers Registration
+                </legend>
+                <div class="row bd-3">
+                    {{form.non_field.errors}}
+                <div class="col-md-6">
+                    <div class="form-group">
+                                <div>
+                                    {{form1.username.label}}
+                                </div>
+                                <ol>
+                                    <div>
+                                    {% if form1.username.errors %}
+                                        {% for error in form1.username.errors %}
+                                            <l1><strong class="errorlist"> {{error}} </strong></l1>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </div>
+                                </ol>
+                                <div>
+                                    {% render_field form1.username class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.password1.label}}
+                                </div>
+                                <ol>
+                                <div>
+                                    {% if form1.password1.errors %}
+                                        {% for error in form1.password1.errors %}
+                                            <button class="btn btn-danger"> {{error}} </button>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                </ol>
+                                <div>
+                                    {% render_field form1.password1 class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.password2.label}}
+                                </div>
+                                <div>
+                                    {% if form1.password2.errors %}
+                                        {% for error in form1.password2.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form1.password2 class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.first_name.label}}
+                                </div>
+                                <div>
+                                    {% if form1.first_name.errors %}
+                                        {% for error in form1.first_name.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form1.first_name class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.last_name.label}}
+                                </div>
+                                <div>
+                                    {% if form1.last_name.errors %}
+                                        {% for error in form1.last_name.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form1.last_name class='form-control' %}
+                                </div>
+                            </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                                <div>
+                                    {{form2.other_names.label}}
+                                </div>
+                                <div>
+                                    {% if form2.other_names.errors %}
+                                        {% for error in form2.other_names.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form2.other_names class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.teacher_image.label}}
+                                </div>
+                                <div>
+                                    {% if form2.teacher_image.errors %}
+                                        {% for error in form2.teacher_image.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form2.teacher_image class='form-picture' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.qualification.label}}
+                                </div>
+                                <div>
+                                    {% if form2.qualification.errors %}
+                                        {% for error in form2.qualification.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form2.qualification class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.relationship.label}}
+                                </div>
+                                <div>
+                                    {% if form2.relationship.errors %}
+                                        {% for error in form2.relationship.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form2.relationship class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.subjects.label}}
+                                </div>
+                                <div>
+                                    {% if form2.subjects.errors %}
+                                        {% for error in form2.subjects.errors %}
+                                            <p class="danger"> {{error}} </p>
+                                        {% endfor %}
+                                {% endif %}
+                                </div>
+                                <div>
+                                    {% render_field form2.subjects class='form-control' %}
+                                </div>
+                            </div>
+                </div>
+                </div>
+                <div>
+                    <input class="btn btn-success btn-block" type="submit">
+                </div>
+            </form>
+{% endblock %}

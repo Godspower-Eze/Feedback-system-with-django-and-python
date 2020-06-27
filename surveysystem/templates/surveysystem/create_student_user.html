@@ -1,0 +1,99 @@
+{% extends 'surveysystem/base.html'%}
+{% load widget_tweaks %}
+{% block content %}
+            <form class="container  p-5" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+                <legend>
+                            Students Registration
+                </legend>
+                <div class="row bd-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                                <div>
+                                    {{form1.username.label}}
+                                </div>
+                                <div>
+                                    {% render_field form1.username class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.password1.label}}
+                                </div>
+                                <div>
+                                    {% render_field form1.password1 class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.password2.label}}
+                                </div>
+                                <div>
+                                    {% render_field form1.password2 class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.first_name.label}}
+                                </div>
+                                <div>
+                                    {% render_field form1.first_name class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form1.last_name.label}}
+                                </div>
+                                <div>
+                                    {% render_field form1.last_name class='form-control' %}
+                                </div>
+                            </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                                <div>
+                                    {{form2.other_names.label}}
+                                </div>
+                                <div>
+                                    {% render_field form2.other_names class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.guardians_name.label}}
+                                </div>
+                                <div>
+                                    {% render_field form2.guardians_name class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.student_image.label}}
+                                </div>
+                                <div>
+                                    {% render_field form2.student_image class='form-picture' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.my_class.label}}
+                                </div>
+                                <div>
+                                    {% render_field form2.my_class class='form-control' %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    {{form2.teachers.label}}
+                                </div>
+                                <div>
+                                    {% render_field form2.teachers class='form-control' %}
+                                </div>
+                            </div>
+                </div>
+                </div>
+                <div>
+                    <input class="btn btn-success btn-block" type="submit">
+                </div>
+            </form>
+{% endblock %}
